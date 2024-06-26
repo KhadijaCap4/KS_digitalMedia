@@ -1,0 +1,15 @@
+const express = require('express');
+const app = express();
+const port = 3000;
+
+// Middleware pour servir des fichiers statiques
+app.use(express.static('public'));
+
+// Route de base
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public/index.html');
+});
+
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
